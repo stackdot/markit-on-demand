@@ -12,8 +12,7 @@ const async			= require('async')
 
 
 
-// Static Params:
-const BASE_URL 		= 'http://dev.markitondemand.com/MODApis/Api/v2/'
+
 
 
 
@@ -33,6 +32,9 @@ class MarkitOnDemand {
 
 		debug('Instance Created:', params)
 		this.params = params
+
+		// Static Params:
+		this.BASE_URL = 'http://dev.markitondemand.com/MODApis/Api/v2/'
 
 		console.log('instance created')
 
@@ -88,7 +90,7 @@ class MarkitOnDemand {
 	 *  @return {String}        	URL to call to find symbol data
 	 */
 	lookupUrl( query ){
-		return `${BASE_URL}Lookup/json?input=${query}`
+		return `${this.BASE_URL}Lookup/json?input=${query}`
 	}
 
 
@@ -99,7 +101,7 @@ class MarkitOnDemand {
 	 *  @return {String}        	URL to get quote data
 	 */
 	quoteUrl( symbol ){
-		return `${BASE_URL}Quote/json?symbol=${symbol}`
+		return `${this.BASE_URL}Quote/json?symbol=${symbol}`
 	}
 
 
