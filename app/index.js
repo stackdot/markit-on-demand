@@ -25,7 +25,7 @@ class MarkitOnDemand {
 
 	/**
 	 *  Constructor
-	 *  @param  {Object} params Params to be set into this instance
+	 *  @param  {Object} params 		Params to be set into this instance
 	 *  @return {MarkitOnDemand}        MarkitOnDemand instance
 	 */
 	constructor( params ){
@@ -112,7 +112,7 @@ class MarkitOnDemand {
 
 /**
  *  Export
- *  @param  {Object} 	params 	MarkitOnDemand library params
+ *  @param  {Object} 	params 		MarkitOnDemand library params
  *  @return {MarkitOnDemand}        New instance of the MarkitOnDemand library
  */
 module.exports = new MarkitOnDemand()
