@@ -40,10 +40,12 @@ npm install markit-on-demand --save
 To use:
 ```javascript
 
-const NewLib = require('markit-on-demand')({
-	// Params for your Lib
-	foo: 'bar'
-})
+const Markit = require('markit-on-demand')
+
+Markit.lookup('Amazon')
+	.then(( res ) => {
+		console.log('Results:', res)
+	})
 
 ```
 
