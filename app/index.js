@@ -50,7 +50,7 @@ class MarkitOnDemand {
 	getQuote( symbol ){
 		const deferred = Q.defer()
 		request({
-			url: this.quoteUrl( query ),
+			url: this.quoteUrl( symbol ),
 			json: true
 		}, ( err, res, body ) => {
 			if( err ) return deferred.reject( err )
