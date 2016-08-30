@@ -11,6 +11,7 @@ const request		= require('request')
 const async			= require('async')
 
 
+
 // Static Params:
 const BASE_URL 		= 'http://dev.markitondemand.com/MODApis/Api/v2/'
 
@@ -33,10 +34,7 @@ class MarkitOnDemand {
 		debug('Instance Created:', params)
 		this.params = params
 
-		this.lookup('AMZN')
-			.then(( res ) => {
-				console.log('Done', res)
-			})
+		console.log('instance created')
 
 		return this
 
@@ -44,19 +42,50 @@ class MarkitOnDemand {
 
 
 
-	lookup( query ){
-		request( this.lookupUrl( query ), ( err, res, body ) => {
-			console.log('done', err)
-
+	/**
+	 *  Get stock quote for a Symbol
+	 *  @param  {String} symbol 	Stock symbol
+	 *  @return {Promise}        	Promise
+	 */
+	getQuote( symbol ){
+		const deferred = Q.defer()
+		request({
+			url: this.quoteUrl( query ),
+			json: true
+		}, ( err, res, body ) => {
+			if( err ) return deferred.reject( err )
+			if( res.statusCode != 200 ) return deferred.reject( new Error('Status code non 200: '+res.statusCode ) )
+			deferred.resolve( body )
 		})
+		return deferred.promise
+	}
+
+
+
+	/**
+	 *  Lookup a stock symbol via a query string
+	 *  @param  {String} query 		Query which to search for symbols on
+	 *  @return {Promise}       	Promise
+	 */
+	lookup( query ){
+		const deferred = Q.defer()
+		request({
+			url: this.lookupUrl( query ),
+			json: true
+		}, ( err, res, body ) => {
+			if( err ) return deferred.reject( err )
+			if( res.statusCode != 200 ) return deferred.reject( new Error('Status code non 200: '+res.statusCode ) )
+			deferred.resolve( body )
+		})
+		return deferred.promise
 	}
 
 
 
 	/**
 	 *  Generate the URL for Symbol Lookups
-	 *  @param  {String} query 	Search query to lookup symbols by
-	 *  @return {String}        URL to call to find symbol data
+	 *  @param  {String} query 		Search query to lookup symbols by
+	 *  @return {String}        	URL to call to find symbol data
 	 */
 	lookupUrl( query ){
 		return `${BASE_URL}Lookup/json?input=${query}`
@@ -66,13 +95,12 @@ class MarkitOnDemand {
 
 	/**
 	 *  Generate the URL for Quote Lookup
-	 *  @param  {[type]} symbol [description]
-	 *  @return {[type]}        [description]
+	 *  @param  {String} symbol 	Stock symbol
+	 *  @return {String}        	URL to get quote data
 	 */
 	quoteUrl( symbol ){
 		return `${BASE_URL}Quote/json?symbol=${symbol}`
 	}
-
 
 
 
@@ -85,6 +113,4 @@ class MarkitOnDemand {
  *  @param  {Object} 	params 	MarkitOnDemand library params
  *  @return {MarkitOnDemand}        New instance of the MarkitOnDemand library
  */
-module.exports = ( params )=> {
-	return new MarkitOnDemand( params )
-}
+module.exports = new MarkitOnDemand()

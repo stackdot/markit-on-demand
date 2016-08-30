@@ -1,6 +1,6 @@
 {
   "name": "markit-on-demand",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Markit On Demand JS Lib",
   "main": "app/index.js",
   "scripts": {
