@@ -1,6 +1,6 @@
 [![Node Version](https://img.shields.io/node/v/markit-on-demand.svg?maxAge=60)](https://www.npmjs.com/package/markit-on-demand) [![NPM Version](https://img.shields.io/npm/v/markit-on-demand.svg?maxAge=60)](https://www.npmjs.com/package/markit-on-demand)  [![NPM License](https://img.shields.io/npm/l/markit-on-demand.svg?maxAge=60)](https://www.npmjs.com/package/markit-on-demand) 
 
-[![Build Status](https://drone.stackdot.com/api/badges/stackdot/markit-on-demand/status.svg?maxAge=60)](https://drone.stackdot.com/stackdot/markit-on-demand) [![dependencies Status](https://img.shields.io/david/stackdot/markit-on-demand.svg?maxAge=60)](https://david-dm.org/stackdot/markit-on-demand) [![Coverage Status](https://coveralls.io/repos/github/stackdot/markit-on-demand/badge.svg?branch=master)](https://coveralls.io/github/stackdot/markit-on-demand?branch=master)
+[![Build Status](https://drone.stackdot.com/api/badges/stackdot/markit-on-demand/status.svg?maxAge=60)](https://drone.stackdot.com/stackdot/markit-on-demand) [![dependencies Status](https://img.shields.io/david/stackdot/markit-on-demand.svg?maxAge=60)](https://david-dm.org/stackdot/markit-on-demand) [![Coverage Status](https://coveralls.io/repos/github/stackdot/markit-on-demand/badge.svg?branch=master)](https://coveralls.io/github/stackdot/markit-on-demand?branch=master) [![Code Climate](https://codeclimate.com/github/stackdot/markit-on-demand/badges/gpa.svg)](https://codeclimate.com/github/stackdot/markit-on-demand)
 
 
 
